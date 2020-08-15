@@ -1,0 +1,6 @@
+{
+  "name": "hexo-tag-source",
+  "version": "0.0.1",
+  "description": "Tag the source from the article",
+  "main": "index.js"
+}
