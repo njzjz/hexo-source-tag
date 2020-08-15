@@ -1,6 +1,7 @@
 hexo.extend.injector.register('head_end', () => {
 	const css = hexo.extend.helper.get('css').bind(hexo);
-	return css(`https://cdn.jsdelivr.net/npm/hexo-tag-source@${process.version}/css/source.css`);
+	const { name, version } = require('./package.json');
+	return css(`https://cdn.jsdelivr.net/npm/${name}@${version}/css/source.css`);
 });
 
 function datestr(y, m, d){
