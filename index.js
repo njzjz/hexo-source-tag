@@ -1,8 +1,21 @@
+const css = hexo.extend.helper.get('css').bind(hexo);
+const { name, version } = require('./package.json');
+
+function cdn_url(path){
+	return `https://cdn.jsdelivr.net/npm/${name}@${version}/${path}`;
+}
+
 hexo.extend.injector.register('head_end', () => {
-	const css = hexo.extend.helper.get('css').bind(hexo);
-	const { name, version } = require('./package.json');
-	return css(`https://cdn.jsdelivr.net/npm/${name}@${version}/css/source.css`);
-});
+	return css(cdn_url('css/source_index.css'));
+}, 'home');
+
+hexo.extend.injector.register('head_end', () => {
+	return css(cdn_url('css/source.css'));
+}, 'post');
+
+hexo.extend.injector.register('head_end', () => {
+	return css(cdn_url('css/source.css'));
+}, 'page');
 
 function datestr(y, m, d){
 	datesting = "";
