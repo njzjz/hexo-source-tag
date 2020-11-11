@@ -1,5 +1,11 @@
 const css = hexo.extend.helper.get('css').bind(hexo);
 const { name, version } = require('./package.json');
+const format = require('string-format');
+
+const i18n = {
+    'en': require('./locales/en.json'),
+    'zh-CN': require('./locales/zh-CN.json')
+}
 
 function cdn_url(path){
 	return `https://cdn.jsdelivr.net/npm/${name}@${version}/${path}`;
@@ -17,38 +23,26 @@ hexo.extend.injector.register('head_end', () => {
 	return css(cdn_url('css/source.css'));
 }, 'page');
 
-function datestr(y, m, d){
-	datesting = "";
-	if (y){
-		datesting += "于"+ y.toString() + "年";
-		if (m){
-			datesting += m.toString() +"月";
-			if (d){
-				datesting += d.toString() +"日";
-			}
-		}
-	}
-	return datesting;
+function datestr(t, y, m, d){
+	if (y&&m&&d) return format(t['dateymd'], y, m, d);
+	else if (y&&m) return format(t['dateym'], y, m);
+	else if (y) return format(t['datey'], y);
+	else return '';
 }
 
-
+platform_info = require('./platform.json');
 hexo.extend.tag.register('source', function(args){
+	const lang = args[5] || 'zh-CN';
+	var t = i18n[lang];
 	var source = args[0];
 	var id = args[1];
 	var cls, platform, link;
-	datestring = datestr(args[2], args[3], args[4]);
-	if (source == "zhihu"){
-		cls = "info zhihu"; 
-		platform = "知乎专栏";
-		link = "https://zhuanlan.zhihu.com/p/" + id;
-	}else if( source == "wechat"){
-		cls = "success wechat"; 
-		platform = "微信公众号";
-		link = "https://mp.weixin.qq.com/s/" + id;
-	}else if ( source == "zhihu_answer"){
-		cls = "info zhihu";
-		platform = "知乎";
-		link = "https://www.zhihu.com/answer/" + id;
-	}
-	return `<div class="note sourcenote ${cls}">本文${datestring}发表于${platform}，<a href="${link}">查看原文</a></div>`;
-});
+	datestring = datestr(t, args[2], args[3], args[4]);
+	cls = platform_info[source].cls;
+	link = format(platform_info[source].link, id);
+	platform = t['platform'][source];
+	published_str = format(t['publish'], datestring, platform);
+	raw_str = t['raw'];
+	return `<div class="note sourcenote ${cls}">${published_str}<a href="${link}">${raw_str}</a></div>`;
+}, {async: true});
+
