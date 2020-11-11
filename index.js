@@ -32,7 +32,7 @@ function datestr(t, y, m, d){
 
 platform_info = require('./platform.json');
 hexo.extend.tag.register('source', function(args){
-	const lang = this.page.lang;
+	const lang = this.lang;
 	var t = i18n[lang];
 	var source = args[0];
 	var id = args[1];
