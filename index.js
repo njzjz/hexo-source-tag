@@ -6,8 +6,8 @@ var i18n = new require('hexo-i18n')({
     languages: ['en', 'zh-CN']
 });
 
-i18n.set('en', require('./locales/en.json');
-i18n.set('zh-CN', require('./locales/zh-CN.json');
+i18n.set('en', require('./locales/en.json'));
+i18n.set('zh-CN', require('./locales/zh-CN.json'));
 
 function cdn_url(path){
 	return `https://cdn.jsdelivr.net/npm/${name}@${version}/${path}`;
