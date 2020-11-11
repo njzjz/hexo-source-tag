@@ -2,7 +2,7 @@ const css = hexo.extend.helper.get('css').bind(hexo);
 const { name, version } = require('./package.json');
 const { format } = require('util');
 
-var i18n = new require('hexo-i18n')({
+const i18n = new require('hexo-i18n')({
     languages: ['en', 'zh-CN']
 });
 
