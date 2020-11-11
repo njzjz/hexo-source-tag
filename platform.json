@@ -1,14 +1,14 @@
 {
 	"zhihu":{
 		"cls": "info zhihu",
-		"link": "https://zhuanlan.zhihu.com/p/%s"
+		"link": "https://zhuanlan.zhihu.com/p/{0}"
 	},
     "wechat":{
 		"cls": "success wechat",
-		"link": "https://mp.weixin.qq.com/s/%s"
+		"link": "https://mp.weixin.qq.com/s/{0}"
 	},
 	"zhihu_answer":{
 		"cls": "info zhihu",
-		"link": "https://www.zhihu.com/answer/%s"
+		"link": "https://www.zhihu.com/answer/{0}"
 	}
 }
