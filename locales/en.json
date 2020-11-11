@@ -2,7 +2,7 @@
   "dateymd":"on {1} {2}, {0}",
   "dateym":"in {1} {0}",
   "datey":"in {0}",
-  "publish": "The post was published at {1} {0}.",
+  "publish": "The post was published at {1} {0}. ",
   "raw": "View original text",
   "platform":{
     "zhihu": "Zhihu Column",
