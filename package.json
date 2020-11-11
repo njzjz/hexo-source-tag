@@ -4,6 +4,6 @@
   "description": "Tag the source from the article",
   "main": "index.js",
   "dependencies": {
-    "hexo-i18n": "^1.0.0"
+    "string-format": "^2.0.0"
   }
 }
