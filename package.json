@@ -2,5 +2,8 @@
   "name": "hexo-source-tag",
   "version": "0.0.4",
   "description": "Tag the source from the article",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "hexo-i18n": "^1.0.0"
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "dateymd":"于%1$s年%2$s月%3$s日",
+  "dateym":"于%1$s年%2$s月",
+  "datey":"于%1$s年",
+  "publish": "本文%1$s发表于%2$s,",
+  "raw": "查看原文",
+  "platform":{
+    "zhihu": "知乎专栏",
+	"zhihu_answer": "知乎",
+	"wechat": "微信公众号"
+  }
+}

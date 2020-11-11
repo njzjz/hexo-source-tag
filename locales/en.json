@@ -1,0 +1,12 @@
+{
+  "dateymd":"on %2$s %3$s, %1$s",
+  "dateym":"in %2$s %1$s",
+  "datey":"in %1$s",
+  "publish": "The post was published at %2$s %1$s.",
+  "raw": "View original text",
+  "platform":{
+    "zhihu": "Zhihu Column",
+	"zhihu_answer": "Zhihu",
+	"wechat": "Wechat Official Account"
+  }
+}
