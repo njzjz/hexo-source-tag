@@ -1,4 +1,5 @@
 # hexo-source-tag
+[![jsdelivr](https://data.jsdelivr.com/v1/package/npm/hexo-source-tag/badge/year?style=rounded)](https://www.jsdelivr.com/package/npm/hexo-source-tag)
 
 You must use [hexo-theme-next](https://github.com/next-theme/hexo-theme-next).
 
