@@ -36,7 +36,7 @@ hexo.extend.tag.register('source', function(args){
 
 hexo.extend.filter.register('after_render:html', function(str, data){
   var re = /<sourcetag>(([\s\S])*?)<\/sourcetag>/g;
-  if(data.__index){
+  if(data.page.__index){
     // remove source tag in index
     str = str.replace(re, "");
   } else {
