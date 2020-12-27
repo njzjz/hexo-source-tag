@@ -11,18 +11,6 @@ function cdn_url(path){
 	return `https://cdn.jsdelivr.net/npm/${name}@${version}/${path}`;
 }
 
-hexo.extend.injector.register('head_end', () => {
-	return css(cdn_url('css/source_index.css'));
-}, 'home');
-
-hexo.extend.injector.register('head_end', () => {
-	return css(cdn_url('css/source.css'));
-}, 'post');
-
-hexo.extend.injector.register('head_end', () => {
-	return css(cdn_url('css/source.css'));
-}, 'page');
-
 function datestr(t, y, m, d){
 	if (y&&m&&d) return format(t['dateymd'], y, m, d);
 	else if (y&&m) return format(t['dateym'], y, m);
@@ -32,7 +20,7 @@ function datestr(t, y, m, d){
 
 platform_info = require('./platform.json');
 hexo.extend.tag.register('source', function(args){
-	const lang = args[5] || 'zh-CN';
+	const lang = args[5] || this.lang || 'zh-CN';
 	var t = i18n[lang];
 	var source = args[0];
 	var id = args[1];
@@ -43,6 +31,20 @@ hexo.extend.tag.register('source', function(args){
 	platform = t['platform'][source];
 	published_str = format(t['publish'], datestring, platform);
 	raw_str = t['raw'];
-	return `<div class="note sourcenote ${cls}">${published_str}<a href="${link}">${raw_str}</a></div>`;
+	return `<sourcetag><div class="note sourcenote ${cls}">${published_str}<a href="${link}">${raw_str}</a></div></sourcetag>`;
 }, {async: true});
 
+hexo.extend.filter.register('after_render:html', function(str, data){
+  var re = /<sourcetag>(([\s\S])*?)<\/sourcetag>/g;
+  if(data.page.__index){
+    // remove source tag in index
+    str = str.replace(re, "");
+  } else {
+    if(str.match(re)){
+      // only add scripts for pages that have the tag
+      str = str.replace(re, "$1");
+      str = str.replace('</head>', css(cdn_url('css/source.css')) + '</head>');
+    }
+  }
+  return str;
+});
