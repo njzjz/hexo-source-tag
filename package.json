@@ -3,7 +3,15 @@
   "version": "0.0.7",
   "description": "Tag the source from the article",
   "main": "index.js",
+  "scripts": {
+    "prepack": "postcss css/source.css > css/source.min.css"
+  },
   "dependencies": {
     "string-format": "^2.0.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1"
   }
 }

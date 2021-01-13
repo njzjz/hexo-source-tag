@@ -43,7 +43,7 @@ hexo.extend.filter.register('after_render:html', function(str, data){
     if(str.match(re)){
       // only add scripts for pages that have the tag
       str = str.replace(re, "$1");
-      str = str.replace('</head>', css(cdn_url('css/source.css')) + '</head>');
+      str = str.replace('</head>', css(cdn_url('css/source.min.css')) + '</head>');
     }
   }
   return str;
