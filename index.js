@@ -1,6 +1,8 @@
 const css = hexo.extend.helper.get('css').bind(hexo);
 const { name, version } = require('./package.json');
 const format = require('string-format');
+const Injector = require("hexo-tag-injector");
+const injector = new Injector(hexo);
 
 const i18n = {
     'en': require('./locales/en.json'),
@@ -31,20 +33,10 @@ hexo.extend.tag.register('source', function(args){
 	platform = t['platform'][source];
 	published_str = format(t['publish'], datestring, platform);
 	raw_str = t['raw'];
-	return `<sourcetag><div class="note sourcenote ${cls}">${published_str}<a href="${link}">${raw_str}</a></div></sourcetag>`;
+	return injector.mark(`<div class="note sourcenote ${cls}">${published_str}<a href="${link}">${raw_str}</a></div>`);
 }, {async: true});
 
-hexo.extend.filter.register('after_render:html', function(str, data){
-  var re = /<sourcetag>(([\s\S])*?)<\/sourcetag>/g;
-  if(data.page.__index){
-    // remove source tag in index
-    str = str.replace(re, "");
-  } else {
-    if(str.match(re)){
-      // only add scripts for pages that have the tag
-      str = str.replace(re, "$1");
-      str = str.replace('</head>', css(cdn_url('css/source.min.css')) + '</head>');
-    }
-  }
-  return str;
-});
+injector.register('head_end', css({
+    href: cdn_url('css/source.min.css'),
+    class: 'pjax',
+}), remove_from_index = true);
