@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "hexo-tag-injector": "^0.0.1",
+    "hexo-util": "^2.4.0",
+    "jsdelivr_url": "^0.0.1",
     "string-format": "^2.0.0"
   },
   "devDependencies": {
