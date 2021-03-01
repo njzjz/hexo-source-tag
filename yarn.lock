@@ -757,10 +757,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-hexo-tag-injector@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/hexo-tag-injector/-/hexo-tag-injector-0.0.3.tgz#3c12f03d457aa3739dd10d8d64a5d203477ce690"
-  integrity sha512-DmNrLGuxA1TrBbB947eNtDfYKq5jigK2734bPNTXuyZen5JZ9ukyUrxWsij5+ZeAKUhm3OZH0jc6eUOs1FxbCQ==
+hexo-tag-injector@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/hexo-tag-injector/-/hexo-tag-injector-0.1.0.tgz#ddf6ccc45450eb1e638b2ec4b359d7f05ee65b77"
+  integrity sha512-4LxRMtBGeFfTQtNt3lRomgvjIRVPj0DSb9oMnxJn7ltDjkH/pT46ZOkDfahn5GJdbYfcmfsH5uM0OY0yIxLzvw==
   dependencies:
     escape-string-regexp "^4.0.0"
 
