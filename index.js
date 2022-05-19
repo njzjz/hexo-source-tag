@@ -3,7 +3,7 @@ const { name, version } = require('./package.json');
 const format = require('string-format');
 const Injector = require("hexo-tag-injector");
 const injector = new Injector(hexo, id = name);
-const { npm_url } = require("jsdelivr_url");
+const { npm_url } = require("unpkg_url");
 const { htmlTag } = require("hexo-util");
 
 const i18n = {
