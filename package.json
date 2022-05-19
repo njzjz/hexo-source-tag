@@ -1,6 +1,6 @@
 {
   "name": "hexo-source-tag",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Tag the source from the article",
   "main": "index.js",
   "scripts": {
